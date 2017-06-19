@@ -5,11 +5,11 @@ require 'rubocop'
 require 'rspec/core/rake_task'
 require 'yard'
 
-task :default => [:build, :test]
-task :inspect => [:reek, :rubocop]
+task default: [:build, :test]
+task inspect: [:reek, :rubocop]
 
 RSpec::Core::RakeTask.new(:spec)
-task :test => :spec
+task test: :spec
 
 Reek::Rake::Task.new do |task|
   task.name = :reek
@@ -25,4 +25,4 @@ end
 YARD::Rake::YardocTask.new do |task|
   task.files = %w(lib/**/*.rb - *.md)
 end
-task :doc => :yard
+task doc: :yard
