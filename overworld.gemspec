@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Easy server hosting for your games.}
   spec.description   = %q{Simple game server creation, hosting, and management.}
-  spec.homepage      = 'https://github.com/overworld/overworld'
+  spec.homepage      = 'https://github.com/overworld-hosting/overworld'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = 'exe'
