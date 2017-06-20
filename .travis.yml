@@ -10,16 +10,6 @@ rvm:
 - jruby-9.1.9.0
 jdk:
 - oraclejdk8
-matrix:
-  exclude:
-  - rvm: 2.3
-    jdk: oraclejdk7
-  - rvm: 2.3
-    jdk: oraclejdk8
-  - rvm: 2.4
-    jdk: oraclejdk7
-  - rvm: 2.4
-    jdk: oraclejdk8
 before_script:
 - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
   > ./cc-test-reporter
