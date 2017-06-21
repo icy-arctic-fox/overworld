@@ -20,6 +20,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'thor'
+  spec.add_dependency 'overworld-core', ">= #{Overworld::VERSION}"
+  spec.add_dependency 'overworld-ui',   ">= #{Overworld::VERSION}"
 
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake'
