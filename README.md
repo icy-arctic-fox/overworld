@@ -4,11 +4,6 @@ Overworld
 Simple server hosting for your games.
 Easily create multi-player hosts for you and your friends.
 
-This repository is for bundling the core functionality, UI, and supported games into a stand-alone.
-For core functionality, see [overworld-hosting/overworld-core](https://github.com/overworld-hosting/overworld-core).
-For the front-end interface, see [overworld-hosting/overworld-ui](https://github.com/overworld-hosting/overworld-ui).
-For any other components, specifically game support, see the [overworld-hosting organization](https://github.com/overworld-hosting).
-
 [![Build Status](https://travis-ci.org/overworld-hosting/overworld.svg?branch=master)](https://travis-ci.org/overworld-hosting/overworld)
 
 Installation
@@ -30,6 +25,14 @@ Development
 -----------
 
 **TODO**
+
+### Directory Structure
+
+- `bundle/` Packaging for the complete Overworld application
+- `cli/` Command-line interface
+- `core/` Core functionality and shared code
+- `rest/` REST API interface
+- `ui/` Browser-based interface
 
 Contributing
 ------------
