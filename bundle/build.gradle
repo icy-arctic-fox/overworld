@@ -1,0 +1,6 @@
+dependencies {
+    compile project(':core')
+    compile project(':cli')
+    compile project(':rest')
+    compile project(':ui')
+}
