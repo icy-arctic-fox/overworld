@@ -10,9 +10,6 @@ For the front-end interface, see [overworld-hosting/overworld-ui](https://github
 For any other components, specifically game support, see the [overworld-hosting organization](https://github.com/overworld-hosting).
 
 [![Build Status](https://travis-ci.org/overworld-hosting/overworld.svg?branch=master)](https://travis-ci.org/overworld-hosting/overworld)
-[![Code Climate](https://codeclimate.com/github/overworld-hosting/overworld/badges/gpa.svg)](https://codeclimate.com/github/overworld-hosting/overworld)
-[![Test Coverage](https://codeclimate.com/github/overworld-hosting/overworld/badges/coverage.svg)](https://codeclimate.com/github/overworld-hosting/overworld/coverage)
-[![Issue Count](https://codeclimate.com/github/overworld-hosting/overworld/badges/issue_count.svg)](https://codeclimate.com/github/overworld-hosting/overworld)
 
 Installation
 ------------
