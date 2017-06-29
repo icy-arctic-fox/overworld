@@ -7,6 +7,7 @@ buildscript {
 
     repositories {
         jcenter()
+        maven { url "http://dl.bintray.com/kotlin/exposed" }
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
@@ -20,6 +21,7 @@ allprojects {
 
     repositories {
         jcenter()
+        maven { url "http://dl.bintray.com/kotlin/exposed" }
     }
     dependencies {
         compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
