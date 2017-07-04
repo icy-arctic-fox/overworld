@@ -1,3 +1,4 @@
+import com.turtleboxgames.overworld.base64
 import com.turtleboxgames.overworld.entities.*
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
@@ -10,7 +11,7 @@ fun foo(name: String) {
         logger.addLogger(StdOutSqlLogger)
         create(Games)
         for(game in Game.all()) {
-            System.out.println("ID: ${game.id}, Name: ${game.name}, Desc: ${game.description}, Flag: ${game.enabled}")
+            System.out.println("ID: ${game.id.value.base64()}, Name: ${game.name}, Desc: ${game.description}, Flag: ${game.enabled}")
         }
         commit()
     }
