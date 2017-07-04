@@ -1,12 +1,13 @@
 package com.turtleboxgames.overworld.entities
 
 import org.jetbrains.exposed.dao.*
+import java.util.*
 
 /**
  * Information about a known game.
  */
-class Game(id: EntityID<Int>) : IntEntity(id) {
-    companion object : IntEntityClass<Game>(Games)
+class Game(id: EntityID<UUID>) : Entity<UUID>(id) {
+    companion object : EntityClass<UUID, Game>(Games)
 
     /**
      * Display name of the game.

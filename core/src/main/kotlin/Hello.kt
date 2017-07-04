@@ -9,11 +9,9 @@ fun foo(name: String) {
     transaction {
         logger.addLogger(StdOutSqlLogger)
         create(Games)
-        val game = Game.new {
-            this.name = "Test2"
-            description = "Foobar"
+        for(game in Game.all()) {
+            System.out.println("ID: ${game.id}, Name: ${game.name}, Desc: ${game.description}, Flag: ${game.enabled}")
         }
-        System.out.println(game.description)
         commit()
     }
 }

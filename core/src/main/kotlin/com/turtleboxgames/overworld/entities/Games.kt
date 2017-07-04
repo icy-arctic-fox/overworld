@@ -1,11 +1,17 @@
 package com.turtleboxgames.overworld.entities
 
 import org.jetbrains.exposed.dao.*
+import java.util.*
 
 /**
  * Table containing information about known games.
  */
-object Games : IntIdTable("games") {
+object Games : IdTable<UUID>("games") {
+    /**
+     * Unique ID of the game.
+     */
+    override val id = uuid("id").clientDefault { UUID.randomUUID() }.entityId()
+
     /**
      * Display name of the game.
      */
