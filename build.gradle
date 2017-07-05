@@ -5,6 +5,8 @@ buildscript {
     ext.kotlin_version = '1.1.3'
     ext.detekt_version = '1.0.0.M12.1'
     ext.dokka_version  = '0.9.15'
+    ext.junit_version  = '1.0.0-M4'
+    ext.spek_version   = '1.1.2'
 
     repositories {
         jcenter()
@@ -14,6 +16,7 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$detekt_version"
         classpath "org.jetbrains.dokka:dokka-gradle-plugin:$dokka_version"
+        classpath "org.junit.platform:junit-platform-gradle-plugin:$junit_version"
     }
 }
 
@@ -21,6 +24,7 @@ allprojects {
     apply plugin: 'kotlin'
     apply plugin: 'io.gitlab.arturbosch.detekt'
     apply plugin: 'org.jetbrains.dokka'
+    apply plugin: 'org.junit.platform.gradle.plugin'
 
     repositories {
         jcenter()
@@ -28,6 +32,9 @@ allprojects {
     }
     dependencies {
         compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+        testCompile "org.jetbrains.spek:spek-api:$spek_version"
+        testRuntime "org.jetbrains.spek:spek-junit-platform-engine:$spek_version"
+        testRuntime "org.junit.platform:junit-platform-launcher:$junit_version"
     }
 
     compileKotlin {
@@ -40,5 +47,13 @@ allprojects {
     dokka {
         outputFormat    = 'html'
         outputDirectory = "$buildDir/javadoc"
+    }
+
+    junitPlatform {
+        filters {
+            engines {
+                include 'spek'
+            }
+        }
     }
 }
