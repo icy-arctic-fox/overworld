@@ -2,6 +2,8 @@ package com.turtleboxgames.overworld.tests
 
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.dsl.*
+import com.natpryce.hamkrest.*
+import com.natpryce.hamkrest.assertion.*
 import java.util.*
 import com.turtleboxgames.overworld.*
 
@@ -15,15 +17,11 @@ object UUIDSpec: Spek({
             val bytes = uuid.bytes()
 
             it("is 16 bytes long") {
-                assert(bytes.size == 16)
+                assert.that(bytes.size, equalTo(16))
             }
 
             it("contains the expected bytes") {
-                assert(Arrays.equals(bytes, uuid_bytes))
-            }
-
-            it("fails") {
-                assert(false)
+                assert.that(Arrays.equals(bytes, uuid_bytes), equalTo(true))
             }
         }
     }
