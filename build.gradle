@@ -63,6 +63,7 @@ allprojects {
                 include 'spek'
             }
         }
+        enableStandardTestTask true
     }
 }
 
