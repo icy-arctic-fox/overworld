@@ -65,10 +65,26 @@ allprojects {
         }
         enableStandardTestTask true
     }
-}
-
-subprojects {
     test.useTestNG()
+
+    jacocoTestReport {
+        reports {
+            html.enabled false
+            xml.enabled  true
+            csv.enabled  false
+        }
+    }
+
+    // Hack to get around "too late in Gradle lifecycle" bug.
+    project.afterEvaluate {
+        def junitPlatformTestTask = project.tasks.getByName('junitPlatformTest')
+        jacoco {
+            applyTo junitPlatformTest
+        }
+        project.task(type: JacocoReport, 'junitPlatformJacocoReport', {
+            executionData junitPlatformTestTask
+        })
+    }
 }
 
 task codeCoverageReport(type: JacocoReport) {
@@ -79,10 +95,9 @@ task codeCoverageReport(type: JacocoReport) {
     }
 
     reports {
-        xml.enabled true
-        xml.destination "$buildDir/reports/jacoco/report.xml"
-        html.enabled false
-        csv.enabled false
+        html.enabled true
+        xml.enabled  true
+        csv.enabled  false
     }
 }
 
