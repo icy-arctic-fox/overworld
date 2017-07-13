@@ -1,11 +1,10 @@
-package com.turtleboxgames.overworld.tests
+package com.turtleboxgames.overworld
 
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.dsl.*
 import com.natpryce.hamkrest.*
 import com.natpryce.hamkrest.assertion.*
 import java.util.*
-import com.turtleboxgames.overworld.*
 
 object UUIDSpec: Spek({
     describe("UUID extensions") {
