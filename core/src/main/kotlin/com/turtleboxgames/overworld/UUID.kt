@@ -31,6 +31,9 @@ fun UUID.base64(): String {
  * @return Parsed UUID.
  */
 fun String.getBase64UUID(): UUID {
-    val bytes = Base64.getUrlDecoder().decode(this)
-    return UUID.nameUUIDFromBytes(bytes)
+    val bytes  = Base64.getUrlDecoder().decode(this)
+    val buffer = ByteBuffer.wrap(bytes)
+    val high   = buffer.long
+    val low    = buffer.long
+    return UUID(high, low)
 }

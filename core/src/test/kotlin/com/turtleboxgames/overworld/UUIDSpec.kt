@@ -9,7 +9,8 @@ import java.util.*
 object UUIDSpec: Spek({
     describe("UUID extensions") {
         val uuid_str   = "dfc78d43-4cb0-46d4-8201-c00171ff383b"
-        val uuid_bytes = arrayOf(0xdf, 0xc7, 0x8d, 0x43, 0x4c, 0xb0, 0x46, 0xd4, 0x82, 0x01, 0xc0, 0x01, 0x71, 0xff, 0x38, 0x3b).map { it.toByte() }.toByteArray()
+        val uuid_str64 = "38eNQ0ywRtSCAcABcf84Ow"
+        val uuid_bytes = byteArrayOf(-33, -57, -115, 67, 76, -80, 70, -44, -126, 1, -64, 1, 113, -1, 56, 59)
         val uuid       = UUID.fromString(uuid_str)
 
         on("bytes") {
@@ -21,6 +22,26 @@ object UUIDSpec: Spek({
 
             it("contains the expected bytes") {
                 assert.that(Arrays.equals(bytes, uuid_bytes), equalTo(true))
+            }
+        }
+
+        on("base64") {
+            val str = uuid.base64()
+
+            it("is 22 characters") {
+                assert.that(str, has(String::length, equalTo(22)))
+            }
+
+            it("contains the expected value") {
+                assert.that(str, equalTo(uuid_str64))
+            }
+        }
+
+        on("getBase64UUID") {
+            val ret = uuid_str64.getBase64UUID()
+
+            it("returns the expected value") {
+                assert.that(ret, equalTo(uuid))
             }
         }
     }
